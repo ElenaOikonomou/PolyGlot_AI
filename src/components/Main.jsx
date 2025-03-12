@@ -13,14 +13,23 @@ function handleChange(event) {
 const openai = new OpenAI({
     dangerouslyAllowBrowser: true
 });
+
+async function generateTranslation(){
+const messages = [
+    {
+        role: "developer",
+        content: `You are a helpful text translator that translates 
+        the text the user inserts in the textarea to the ${language}`},
+        {role: "user",
+        content: "You are beautiful"}
+       
+        ]
 const completion = await openai.chat.completions.create({
-    model: "gpt-4o",
-    
-    messages: [
-        {"role": "user", 
-         "content": "translate the given text in textarea in either english, french or spanish "}
-    ]
-});
+    model: "gpt-4o",    
+    messages: messages
+})
+
+console.log(completion.data.choices[0].message.content)}
 
 
 
@@ -37,7 +46,7 @@ const completion = await openai.chat.completions.create({
         <input type="radio" name="language"  value={lang} onChange = {handleChange}/> French
         <input type="radio" name="language"  value={lang} onChange = {handleChange}/> Spanish
       </label>))}
-      <button>Translate</button>
+      <button onClick={generateTranslation}>Translate</button>
     
     </div>
   )
