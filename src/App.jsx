@@ -14,7 +14,7 @@ import NavBar from './components/NavBar'
 //render the completion
 
 const App = () =>  {
-  const [language, setLanguage] = React.useState('English')
+  const [language, setLanguage] = React.useState('Spanish')
   const [inputText, setInputText] = React.useState('')
   
   const [translatedText, setTranslatedText] = React.useState('')
@@ -32,7 +32,7 @@ const App = () =>  {
   }
       
   const openai = new OpenAI(
-      {   apiKey: 'OPENAI_API_KEY' ,
+      {   apiKey: import.meta.env.VITE_NEW_API_KEY ,
           dangerouslyAllowInsecureHTTPRequests: true,
           dangerouslyAllowBrowser: true
       });
@@ -42,18 +42,20 @@ const App = () =>  {
   async function generateTranslation(){
   const messages = [
       {
-          role: "developer",
+          role: "system",
           content: `You are a helpful text translator that translates 
-          the text the user inserts in the textarea to the ${language}`},
+           to the ${language}. Respond only with the translated text.`},
           {role: "user",
-          content: {textToTranslate}}
+          content: inputText}
          
           ]
   const completion = await openai.chat.completions.create({
       model: "gpt-4o",    
       messages: messages
   })
-  
+
+
+
   setTranslatedText(completion.choices[0].message.content)
   navigate("/result", { state: { translatedText: completion.choices[0].message.content } });
   }
@@ -72,7 +74,7 @@ const App = () =>  {
         
        {languages.map((lang, index) => (     
         <label key={index} className='flex items-center'>
-          <input type="radio" name="language" value={lang} onChange = {handleChange} defaultChecked /> {`${lang}`}
+          <input type="radio" name="language" value={`${lang}`} onClick = {handleChange} defaultChecked /> {`${lang}`}
           
         </label>))}
        
