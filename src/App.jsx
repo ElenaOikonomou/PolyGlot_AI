@@ -57,7 +57,7 @@ const App = () =>  {
 
 
   setTranslatedText(completion.choices[0].message.content)
-  navigate("/result", { state: { translatedText: completion.choices[0].message.content } });
+  navigate("/result", { state: { translatedText: completion.choices[0].message.content, inputText: inputText }});
   }
 
   
