@@ -66,11 +66,12 @@ const App = () =>  {
   
     return (
       
-      <div className='flex flex-col'>
-        <NavBar/>
-        <h2 className='text blue-800'>Text to translate</h2>
-        <textarea placeholder="Type your text here" onChange={textToTranslate} value= {inputText}></textarea>
-        <h2>Select language</h2>
+      <div >
+        <NavBar />
+        <div className='w-80 h-110 m-6 flex flex-col justify-self-center items-center place-content-around border-4 rounded'>
+        <h2 className='text-blue-800 font-mono font-bold'>Text to translate</h2>
+        <textarea className= 'w-64 h-24 bg-gray-300' placeholder="Type your text here" onChange={textToTranslate} value= {inputText}></textarea>
+        <h2 className='text-blue-800 font-mono font-bold'>Select language</h2>
         
        {languages.map((lang, index) => (     
         <label key={index} className='flex items-center'>
@@ -78,9 +79,9 @@ const App = () =>  {
           
         </label>))}
        
-          <button onClick={generateTranslation} className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Translate</button>
+          <button onClick={generateTranslation} className=" bg-blue-600 text-white rounded-md hover:bg-blue-700 w-60 h-12">Translate</button>
         
-      
+        </div>
       </div>
     )
 
