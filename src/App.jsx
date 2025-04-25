@@ -19,7 +19,7 @@ const App = () =>  {
   const [language, setLanguage] = React.useState('Spanish')
   const [inputText, setInputText] = React.useState('')
   
-  const [translatedText, setTranslatedText] = React.useState('')
+  const [_translatedText, setTranslatedText] = React.useState('')
   
   const languages = [
       { name: 'French',
@@ -91,9 +91,9 @@ const App = () =>  {
           <span>{lang.name}</span> 
           
         </label>))}
-       
-          <button onClick={generateTranslation} className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-lg">Translate</button>
-        
+         
+           <button className="text-gray-950 underline decoration-sky-400 underline-offset-3 hover:decoration-2 dark:text-white" onClick={generateTranslation}>Translate</button>
+          
         </div>
       </div>
     )
