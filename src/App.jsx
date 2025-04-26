@@ -1,6 +1,8 @@
 import React from 'react'
 import OpenAI from "openai";
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
+import '../output.css';
+import './index.css'
 import ResultPage from './components/ResultPage'
 import NavBar from './components/NavBar'
 import fr_flag from './assets/fr_flag.png'
@@ -19,7 +21,7 @@ const App = () =>  {
   const [language, setLanguage] = React.useState('Spanish')
   const [inputText, setInputText] = React.useState('')
   
-  const [translatedText, setTranslatedText] = React.useState('')
+  const [_translatedText, setTranslatedText] = React.useState('')
   
   const languages = [
       { name: 'French',
@@ -91,9 +93,9 @@ const App = () =>  {
           <span>{lang.name}</span> 
           
         </label>))}
-       
-          <button onClick={generateTranslation} className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-lg">Translate</button>
-        
+         
+           <button className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-lg" onClick={generateTranslation}>Translate</button>
+          
         </div>
       </div>
     )
