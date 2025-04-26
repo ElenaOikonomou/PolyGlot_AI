@@ -1,6 +1,8 @@
 import React from 'react'
 import OpenAI from "openai";
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
+import '../output.css';
+import './index.css'
 import ResultPage from './components/ResultPage'
 import NavBar from './components/NavBar'
 import fr_flag from './assets/fr_flag.png'
@@ -92,7 +94,7 @@ const App = () =>  {
           
         </label>))}
          
-           <button className="text-gray-950 underline decoration-sky-400 underline-offset-3 hover:decoration-2 dark:text-white" onClick={generateTranslation}>Translate</button>
+           <button className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-lg" onClick={generateTranslation}>Translate</button>
           
         </div>
       </div>
