@@ -88,13 +88,25 @@ const App = () =>  {
        {languages.map((lang, index) => (     
         <label key={index} className='flex space-x-2'>
            
-          <input className="m-1" type="radio" name="language" value={lang.name} checked={language === lang.name} onChange = {handleChange}/>
-          <img src={lang.flag} alt={lang.name} className='h-4 w-5 mr-2 '/>
-          <span>{lang.name}</span> 
+          <input
+           className="m-1 hidden"  // Hide the default radio button" 
+           type="radio"
+           name="language" 
+           value={lang.name}
+           checked={language === lang.name}
+           onChange = {handleChange}/>
+           <div className="relative">
+           <div className="w-6 h-6 border-2 border-violet-700 rounded-full flex items-center justify-center 
+                            bg-white hover:bg-violet-200 transition-colors duration-300">
+             <div className={`w-3 h-3 rounded-full ${language === lang.name ? 'bg-violet-700' : 'bg-white'} transition-all`}></div>
+           </div>
+           </div>
+           <img src={lang.flag} alt={lang.name} className='h-7 w-9 mr-3'/>
+           <span className="text-lg md:text-xl font-semibold text-violet-700">{lang.name}</span> 
           
         </label>))}
          
-           <button className="mt-4  px-8 py-4 bg-violet-950 text-white rounded-md hover:bg-violet-700 text-lg transition-all duration-300" onClick={generateTranslation}>Translate</button>
+           <button className="mt-6 px-8 py-4 bg-violet-950 text-white rounded-md hover:bg-violet-700 text-xl font-bold tracking-wide transition-all duration-300 shadow-lg transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-violet-300" onClick={generateTranslation}>Translate</button>
           
         </div>
       </div>
