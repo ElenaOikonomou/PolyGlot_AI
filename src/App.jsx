@@ -80,13 +80,13 @@ const App = () =>  {
       
       <div className="flex flex-col items-center p-4 md:p-6 lg:p-8">
         <NavBar />
-        <div className="w-full max-w-md md:max-w-lg lg:max-w-xl bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-blue-800 text-lg md:text-xl font-bold text-center">Text to translate</h2>
-        <textarea id="text-to-translate" className= "w-full max-w-lg p-2 border rounded-md text-sm md:text-base resize-none" placeholder="Type your text here" onChange={textToTranslate} value= {inputText}></textarea>
-        <h2 className='text-blue-800 font-poppins font-bold'>Select language</h2>
+        <div className="w-full max-w-md md:max-w-lg lg:max-w-xl bg-blue-100 bg-opacity-80 shadow-lg rounded-lg p-8 space-y-5">
+        <h2 className="text-violet-700 text-3xl md:text-4xl font-extrabold text-center mb-6 ">Text to translate</h2>
+        <textarea id="text-to-translate"  className="w-full max-w-lg p-5 border bg-blue-50 text-blue-800 rounded-md text-sm md:text-base resize-none shadow-lg"  placeholder="Type your text here" onChange={textToTranslate} value= {inputText}></textarea>
+        <h2 className='text-violet-700 font-poppins font-bold  mb-4'>Select language</h2>
         
        {languages.map((lang, index) => (     
-        <label key={index} className='flex'>
+        <label key={index} className='flex space-x-2'>
            
           <input className="m-1" type="radio" name="language" value={lang.name} checked={language === lang.name} onChange = {handleChange}/>
           <img src={lang.flag} alt={lang.name} className='h-4 w-5 mr-2 '/>
@@ -94,7 +94,7 @@ const App = () =>  {
           
         </label>))}
          
-           <button className="mt-4 px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-lg" onClick={generateTranslation}>Translate</button>
+           <button className="mt-4  px-8 py-4 bg-violet-950 text-white rounded-md hover:bg-violet-700 text-lg transition-all duration-300" onClick={generateTranslation}>Translate</button>
           
         </div>
       </div>
