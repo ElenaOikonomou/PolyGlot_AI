@@ -82,7 +82,7 @@ const App = () =>  {
         <NavBar />
         <div className="w-full max-w-md md:max-w-lg lg:max-w-xl bg-white shadow-lg rounded-lg p-6">
         <h2 className="text-blue-800 text-lg md:text-xl font-bold text-center">Text to translate</h2>
-        <textarea className= "w-full max-w-lg p-2 border rounded-md text-sm md:text-base resize-none" placeholder="Type your text here" onChange={textToTranslate} value= {inputText}></textarea>
+        <textarea id="text-to-translate" className= "w-full max-w-lg p-2 border rounded-md text-sm md:text-base resize-none" placeholder="Type your text here" onChange={textToTranslate} value= {inputText}></textarea>
         <h2 className='text-blue-800 font-poppins font-bold'>Select language</h2>
         
        {languages.map((lang, index) => (     
