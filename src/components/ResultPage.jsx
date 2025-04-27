@@ -18,7 +18,7 @@ const ResultPage = () => {
         <h2 className="text-violet-700 text-3xl md:text-4xl font-bold text-center mb-4 transition-all duration-300">Your Translation</h2>
         <textarea value={translatedText} readOnly className="w-full max-w-lg p-3 border rounded-md shadow-lg" rows="4"></textarea>
         <button
-         className="mt-4  px-8 py-4 bg-violet-950 text-white rounded-md hover:bg-violet-700 text-lg transition-all duration-300"
+         className="mt-6 px-8 py-4 bg-violet-950 text-white rounded-md hover:bg-violet-700 text-xl font-bold tracking-wide transition-all duration-300 shadow-lg transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-violet-300"
         onClick={() => navigate("/")}
         
         >Start over
